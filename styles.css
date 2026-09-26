@@ -48,6 +48,11 @@ img {
   height: auto;
 }
 
+/* <picture> only picks the logo file; keep the <img> as the layout item */
+picture {
+  display: contents;
+}
+
 /* keep phone numbers on one line */
 a[href^="tel:"] {
   white-space: nowrap;
@@ -355,68 +360,11 @@ h1 .accent {
   color: var(--navy);
 }
 
-/* right-side tile card */
-.hero-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.hcard {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 24px 28px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
-  border: 1px solid var(--border);
-}
-
-.hcard-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.mini-tile {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px 16px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.mini-tile-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--soft-teal);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-}
-.mini-tile-icon svg {
-  width: 20px;
-  height: 20px;
-  color: var(--teal);
-}
-.mini-tile:last-child .mini-tile-icon {
-  background: var(--yellow);
-} /* the "Free" tile */
-.mini-tile:last-child .mini-tile-icon svg {
-  color: var(--navy);
-}
-.mini-tile strong {
-  display: block;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 2px;
-}
-.mini-tile span {
-  font-size: 14px;
-  color: var(--muted);
+/* the Armour Academy logo is the hero's main visual, on the cream shape on
+   desktop. Only the width is set, so it keeps its proportions. */
+.hero-logo {
+  width: 380px;
+  justify-self: center;
 }
 
 /* ── FUNDER BAND ────────────────────────────── */
@@ -992,6 +940,22 @@ footer {
 @media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  /* one logo in the HTML: grid order lifts it above the heading */
+  .hero-logo {
+    order: -1;
+    width: 260px;
+  }
+  /* tablets and phones: heading, text, button and chips centred under the logo */
+  .hero-content {
+    text-align: center;
+  }
+  .hero-chips {
+    justify-content: center;
+  }
+  .hero-chip:last-child {
+    align-self: center;
   }
   #hero::before {
     display: none;
@@ -1034,8 +998,11 @@ footer {
   .fri-card {
     padding: 28px 24px;
   }
-  .hero-visual {
-    display: none;
+  .hero-inner {
+    gap: 32px;
+  }
+  .hero-logo {
+    width: 220px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1055,6 +1022,7 @@ footer {
   .hero-chips {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
   .phone-cta {
     font-size: 22px;
