@@ -15,9 +15,11 @@
     --white:        #ffffff;
     --off-white:    #f8fafc;
     --max-w:        1200px;
+    --nav-h:        84px;
 }
 
-html { scroll-behavior: smooth; }
+/* in-page links stop below the sticky nav (and its 1px border) instead of under it */
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1px); }
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -48,7 +50,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 68px;
+    height: var(--nav-h);
 }
 
 .nav-logo {
@@ -60,7 +62,7 @@ nav {
 
 .nav-logo img {
     width: auto;
-    height: 48px;
+    height: 60px;
     flex-shrink: 0;
 }
 
@@ -150,7 +152,7 @@ h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--black); l
 /* ── HERO ───────────────────────────────────── */
 #hero {
     background: var(--white);
-    padding: 96px 24px 80px;
+    padding: 64px 24px 80px;
     position: relative;
     overflow: hidden;
 }
@@ -176,21 +178,6 @@ h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--black); l
     gap: 64px;
     align-items: center;
 }
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--green-light);
-    color: var(--green-deeper);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-    border: 1px solid #bbf7d0;
-}
-.hero-badge svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 h1 {
     font-size: clamp(38px, 5.5vw, 64px);
@@ -256,6 +243,17 @@ h1 .accent { color: var(--green); }
 .mini-tile strong { display: block; font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 2px; }
 .mini-tile span   { font-size: 14px; color: var(--muted); }
 
+/* ── FUNDER BAND ────────────────────────────── */
+/* slim white strip, so the logo file's own white background blends in */
+.funder-band {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+.funder-band .tnlcf-logo { margin: 0 auto; }
+
 /* ── ABOUT ──────────────────────────────────── */
 #about { background: var(--off-white); }
 
@@ -267,23 +265,13 @@ h1 .accent { color: var(--green); }
 }
 
 .about-text p { color: var(--mid); margin-bottom: 18px; font-size: 16px; line-height: 1.8; }
+.about-text p:last-child { margin-bottom: 0; }
 
-/* small linked cards: the class-card style at a smaller size */
-.about-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 28px; }
+/* small linked cards, stacked: the class-card style at a smaller size */
+.about-cards { display: flex; flex-direction: column; gap: 16px; }
 .about-card { display: block; background: var(--white); padding: 22px 22px 20px; text-decoration: none; }
 .about-card .class-day { margin-bottom: 6px; }
-.about-text .about-card p { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.6; color: var(--dark); }
-
-/* white card: the full-colour logo file has a white background */
-.funding-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    display: flex;
-    justify-content: center;
-}
-.funding-card .tnlcf-logo { width: 300px; }
+.about-card p { font-size: 15px; font-weight: 500; line-height: 1.6; color: var(--dark); }
 
 /* ── CLASSES (MONDAY & WEDNESDAY) ──────────── */
 #classes { background: var(--white); }
@@ -550,12 +538,12 @@ footer { background: #0f172a; color: white; padding: 52px 24px 32px; }
 
 @media (max-width: 768px) {
     section { padding: 64px 20px; }
-    #hero   { padding: 72px 20px 60px; }
+    #hero   { padding: 44px 20px 60px; }
+    .funder-band .tnlcf-logo { width: 200px; }
     .class-cards { grid-template-columns: 1fr; }
     .steps       { grid-template-columns: 1fr; }
     .fri-steps   { grid-template-columns: 1fr; }
     .fri-card    { padding: 28px 24px; }
-    .funding-card { padding: 24px; }
     .hero-visual { display: none; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     .footer-bar  { flex-direction: column; gap: 8px; text-align: center; }
