@@ -267,7 +267,12 @@ h1 .accent { color: var(--green); }
 }
 
 .about-text p { color: var(--mid); margin-bottom: 18px; font-size: 16px; line-height: 1.8; }
-.about-text p:last-child { margin-bottom: 0; }
+
+/* small linked cards: the class-card style at a smaller size */
+.about-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 28px; }
+.about-card { display: block; background: var(--white); padding: 22px 22px 20px; text-decoration: none; }
+.about-card .class-day { margin-bottom: 6px; }
+.about-text .about-card p { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.6; color: var(--dark); }
 
 /* white card: the full-colour logo file has a white background */
 .funding-card {
