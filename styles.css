@@ -362,6 +362,25 @@ h1 .accent {
   color: var(--mid);
   line-height: 1.5;
 }
+/* who the Friday sessions are for: the Free tag's size and shape, in navy
+   with white text (about 14:1 contrast) */
+.audience-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.audience-tags li {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 2px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
 
 /* the Armour Academy logo is the hero's main visual, on the cream shape on
    desktop. .hero-logo is the <picture>, so it is the grid item; only the
