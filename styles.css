@@ -48,9 +48,11 @@ img {
   height: auto;
 }
 
-/* <picture> only picks the logo file; keep the <img> as the layout item */
+/* <picture> is the layout box for each logo. Don't use display: contents here:
+   Chrome renders the <source> as an empty box, which then takes a grid cell
+   of its own and pushes the logo into the wrong place. */
 picture {
-  display: contents;
+  display: block;
 }
 
 /* keep phone numbers on one line */
@@ -84,10 +86,12 @@ nav {
   text-decoration: none;
 }
 
+.nav-logo picture {
+  flex-shrink: 0;
+}
 .nav-logo img {
   width: auto;
   height: 60px;
-  flex-shrink: 0;
 }
 
 .nav-logo-text {
@@ -361,7 +365,8 @@ h1 .accent {
 }
 
 /* the Armour Academy logo is the hero's main visual, on the cream shape on
-   desktop. Only the width is set, so it keeps its proportions. */
+   desktop. .hero-logo is the <picture>, so it is the grid item; only the
+   width is set and the <img> fills it, keeping its proportions. */
 .hero-logo {
   width: 380px;
   justify-self: center;
@@ -865,8 +870,12 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+/* the white logo file has about 31px of empty space before its artwork at
+   240px wide, the Armour logo about 8px, so shift it left by the difference
+   to line the two artworks up */
 .footer-brand .tnlcf-logo {
   margin-top: 24px;
+  margin-left: -23px;
 }
 
 .fcol h4 {
