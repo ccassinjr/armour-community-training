@@ -411,6 +411,8 @@ h1 .accent {
 
 .about-text {
   max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .about-text p {
