@@ -9,7 +9,6 @@
 :root {
   /* palette from the club's inclusive boxing poster */
   --navy: #1b2a4a;
-  --navy-card: #24365b; /* raised cards on navy */
   --navy-line: #33496f; /* lines on navy */
   --teal: #2a8c8c; /* icons and decoration */
   --teal-dark: #237676; /* teal text on light backgrounds (AA 4.5:1) */
@@ -20,7 +19,6 @@
   --red: #c8102e; /* hero accent word only */
   --dark: #1e293b;
   --mid: #475569;
-  --muted: #64748b;
   --light: #94a3b8;
   --border: #e2e8f0;
   --white: #ffffff;
@@ -439,11 +437,9 @@ h1 .accent {
   margin: 0 auto;
 }
 
-.class-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 28px;
+#classes .class-card {
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .class-card {
@@ -504,43 +500,6 @@ h1 .accent {
   color: var(--teal);
   flex-shrink: 0;
   margin-top: 2px;
-}
-
-.location-strip {
-  background: var(--soft-teal);
-  border: 1px solid #cbe6e6;
-  border-radius: 16px;
-  padding: 26px 28px;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-}
-.loc-icon {
-  width: 46px;
-  height: 46px;
-  background: var(--teal);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.loc-icon svg {
-  width: 22px;
-  height: 22px;
-  color: white;
-}
-.loc-text strong {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-.loc-text p {
-  font-size: 14px;
-  color: var(--mid);
-  line-height: 1.6;
 }
 
 /* ── FRIDAYS (INCLUSIVE BOXING) ────────────── */
@@ -694,99 +653,6 @@ h1 .accent {
   color: var(--mid);
   font-size: 15px;
   line-height: 1.7;
-}
-
-/* ── HOW TO BOOK ───────────────────────────── */
-#book {
-  background: var(--navy);
-  color: white;
-  text-align: center;
-}
-#book h2 {
-  color: white;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 880px;
-  margin: 40px auto 52px;
-  text-align: left;
-}
-.step {
-  background: var(--navy-card);
-  border: 1px solid var(--navy-line);
-  border-radius: 16px;
-  padding: 28px 24px;
-}
-.step-num {
-  width: 40px;
-  height: 40px;
-  background: var(--teal);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  margin-bottom: 16px;
-}
-.step-num svg {
-  width: 20px;
-  height: 20px;
-}
-.step h3 {
-  font-size: 15px;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 6px;
-}
-.step p {
-  font-size: 14px;
-  color: var(--light);
-  line-height: 1.65;
-}
-.step p + p {
-  margin-top: 8px;
-}
-.step p a {
-  color: var(--teal-light);
-  font-weight: 600;
-  text-decoration: underline;
-}
-.step-link {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--teal-light);
-}
-
-.phone-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--white);
-  color: var(--navy);
-  text-decoration: none;
-  font-size: clamp(24px, 4vw, 38px);
-  font-weight: 800;
-  padding: 22px 48px;
-  border-radius: 16px;
-  letter-spacing: -0.02em;
-  transition:
-    background 0.2s,
-    transform 0.15s;
-  box-shadow: 0 8px 40px rgba(42, 140, 140, 0.35);
-}
-.phone-cta:hover {
-  background: var(--soft-teal);
-  transform: translateY(-3px);
-}
-.phone-cta svg {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
 }
 
 /* ── ABOUT ARMOUR ACADEMY (THE VENUE) ──────── */
@@ -945,8 +811,8 @@ footer {
   }
 }
 
-/* the full link row needs about 1000px, so switch to the menu button at that width */
-@media (max-width: 1000px) {
+/* the full link row needs about 890px, so switch to the menu button at 900px */
+@media (max-width: 900px) {
   .nav-links {
     display: none;
   }
@@ -1002,12 +868,6 @@ footer {
   .funder-band .tnlcf-logo {
     width: 280px;
   }
-  .class-cards {
-    grid-template-columns: 1fr;
-  }
-  .steps {
-    grid-template-columns: 1fr;
-  }
   .fri-steps {
     grid-template-columns: 1fr;
   }
@@ -1042,10 +902,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .phone-cta {
-    font-size: 22px;
-    padding: 18px 28px;
-  }
   .btn-register {
     display: block;
   }
@@ -1070,8 +926,7 @@ footer {
   *::after {
     transition: none !important;
   }
-  .btn-primary:hover,
-  .phone-cta:hover {
+  .btn-primary:hover {
     transform: none;
   }
 }
