@@ -243,6 +243,7 @@ h2 {
 .lead a {
   color: var(--teal-dark);
   font-weight: 600;
+  text-decoration: underline;
 }
 
 .btn-primary {
@@ -643,6 +644,7 @@ h1 .accent {
 .fri-card p a {
   color: var(--teal-dark);
   font-weight: 600;
+  text-decoration: underline;
 }
 .fri-note {
   margin-top: 24px;
@@ -746,6 +748,11 @@ h1 .accent {
 }
 .step p + p {
   margin-top: 8px;
+}
+.step p a {
+  color: var(--teal-light);
+  font-weight: 600;
+  text-decoration: underline;
 }
 .step-link {
   display: inline-block;
@@ -893,6 +900,15 @@ footer {
 }
 .fcol a:hover {
   color: var(--teal-light);
+}
+/* the phone number reads as a link on navy: teal, bold, underlined */
+.fcol a[href^="tel:"] {
+  color: var(--teal-light);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.fcol a[href^="tel:"]:hover {
+  color: var(--white);
 }
 
 .footer-bar {
