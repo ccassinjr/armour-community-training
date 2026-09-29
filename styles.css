@@ -613,6 +613,10 @@ h1 .accent {
   font-weight: 600;
   text-decoration: underline;
 }
+.fri-accent {
+  color: var(--teal-dark);
+  font-weight: 700;
+}
 .fri-note {
   margin-top: 24px;
   padding-top: 20px;
@@ -624,9 +628,6 @@ h1 .accent {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-bottom: 64px;
-}
-.fri-steps h3 {
-  color: var(--teal-dark);
 }
 
 .btn-register {
