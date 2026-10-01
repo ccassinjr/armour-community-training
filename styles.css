@@ -915,8 +915,8 @@ footer {
   }
 }
 
-/* phones: programme cards stacked, so the day labels stay on one line */
-@media (max-width: 600px) {
+/* below 1200px the programme cards stack, so the day labels stay on one line */
+@media (max-width: 1199px) {
   .hero-cards {
     grid-template-columns: 1fr;
   }
