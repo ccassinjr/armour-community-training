@@ -629,6 +629,10 @@ h1 .accent {
   gap: 20px;
   margin-bottom: 64px;
 }
+/* no single word left alone on a paragraph's last line */
+.fri-steps p {
+  text-wrap: pretty;
+}
 
 .btn-register {
   display: inline-block;
@@ -867,12 +871,39 @@ footer {
   #hero::before {
     display: none;
   }
-  .fri-grid {
+  /* single column: headings and short lines centred; paragraphs, lists and
+     the Friday cards left-aligned in a centred 720px column */
+  #classes .class-card {
+    text-align: center;
+  }
+  #classes .meta-row {
+    justify-content: center;
+  }
+  .fri-grid,
+  .fri-steps {
     grid-template-columns: 1fr;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fri-text .fri-tagline {
+    text-align: center;
   }
   .aa-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+    text-align: center;
+  }
+  .aa-heading .loc-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aa-text {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .aa-text p {
+    text-wrap: balance;
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -919,6 +950,13 @@ footer {
 @media (max-width: 1199px) {
   .hero-cards {
     grid-template-columns: 1fr;
+  }
+  /* stacked cards: content centred, wrapped tag rows included */
+  .class-card.hero-card {
+    text-align: center;
+  }
+  .audience-tags {
+    justify-content: center;
   }
 }
 
