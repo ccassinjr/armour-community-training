@@ -705,6 +705,7 @@ h1 .accent {
   margin-bottom: 18px;
   font-size: 16px;
   line-height: 1.8;
+  text-wrap: pretty;
 }
 
 .btn-outline {
