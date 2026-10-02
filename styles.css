@@ -875,15 +875,33 @@ footer {
   .fri-grid {
     grid-template-columns: 1fr;
   }
-  /* single column: keep the Friday and venue text to a readable line length */
-  .fri-text p,
-  .fri-list,
-  .aa-text p {
-    max-width: 720px;
+  /* single column: Friday text in a centred column under the centred heading,
+     text still left-aligned, tagline centred */
+  .fri-text {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .fri-text .fri-tagline {
+    text-align: center;
   }
   .aa-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+  /* single column: venue icon, heading, text and button centred */
+  .aa-heading,
+  .aa-text {
+    text-align: center;
+  }
+  .aa-heading .loc-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aa-text p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: balance;
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
