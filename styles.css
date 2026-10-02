@@ -751,6 +751,9 @@ footer {
   width: auto;
   height: 72px;
   margin-bottom: 20px;
+  /* logo.png has 85 of its 800px empty before the artwork, about 8px at 72px
+     tall, so shift it left to line the artwork up with the Armour text */
+  margin-left: -8px;
 }
 .footer-brand strong {
   display: block;
@@ -765,12 +768,12 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-/* the white logo file has about 31px of empty space before its artwork at
-   240px wide, the Armour logo about 8px, so shift it left by the difference
-   to line the two artworks up */
+/* the white logo file has 438 of its 3369px empty before the artwork, about
+   31px at 240px wide, so shift it left to line the artwork up with the Armour
+   text */
 .footer-brand .tnlcf-logo {
   margin-top: 24px;
-  margin-left: -23px;
+  margin-left: -31px;
 }
 
 .fcol h4 {
@@ -824,12 +827,14 @@ footer {
 .footer-bar > :not(:first-child) {
   white-space: nowrap;
 }
+/* ccassinjr and Main Website match the Contact links: teal, bold, underlined */
 .footer-bar a {
-  color: var(--light);
-  text-decoration: none;
+  color: var(--teal-light);
+  font-weight: 600;
+  text-decoration: underline;
 }
 .footer-bar a:hover {
-  color: var(--teal-light);
+  color: var(--white);
 }
 /* the registered office address always starts on a line of its own */
 .reg-office {
@@ -909,8 +914,17 @@ footer {
     margin-right: auto;
     text-wrap: balance;
   }
+}
+
+/* tablets: brand on the left, Contact with Venue stacked under it on the right */
+@media (min-width: 768px) and (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 28px;
+  }
+  .footer-brand {
+    grid-row: span 2;
   }
 }
 
@@ -936,6 +950,13 @@ footer {
   .hero-logo {
     width: 220px;
   }
+  h1 {
+    font-size: 38px;
+  }
+}
+
+/* phones: footer in one column, from 768px it uses the tablet layout */
+@media (max-width: 767px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -945,9 +966,6 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-  }
-  h1 {
-    font-size: 38px;
   }
 }
 
@@ -969,9 +987,9 @@ footer {
 }
 
 /* wider screens: the registered office address never breaks. Where the
-   address and the two links can't share a row (just above 768px), the links
-   wrap onto a second row instead of overflowing. */
-@media (min-width: 769px) {
+   address and the two links can't share a row (from 768px), the links wrap
+   onto a second row instead of overflowing. */
+@media (min-width: 768px) {
   .reg-office {
     white-space: nowrap;
   }
@@ -980,6 +998,18 @@ footer {
   }
   .footer-bar > span:first-child {
     flex-basis: 0;
+  }
+}
+
+/* tablets: copyright on a full-width row, then Design by and Main Website
+   together on a row below it, left-aligned */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer-bar {
+    justify-content: flex-start;
+  }
+  .footer-bar > span:first-child {
+    flex-basis: 100%;
+    max-width: none;
   }
 }
 
