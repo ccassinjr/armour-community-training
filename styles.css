@@ -793,13 +793,15 @@ footer {
 .fcol a:hover {
   color: var(--teal-light);
 }
-/* the phone number reads as a link on navy: teal, bold, underlined */
-.fcol a[href^="tel:"] {
+/* the phone number and website read as links on navy: teal, bold, underlined */
+.fcol a[href^="tel:"],
+.fcol a[href^="https://armourtrainingacademy.com"] {
   color: var(--teal-light);
   font-weight: 600;
   text-decoration: underline;
 }
-.fcol a[href^="tel:"]:hover {
+.fcol a[href^="tel:"]:hover,
+.fcol a[href^="https://armourtrainingacademy.com"]:hover {
   color: var(--white);
 }
 
@@ -828,6 +830,10 @@ footer {
 }
 .footer-bar a:hover {
   color: var(--teal-light);
+}
+/* the registered office address always starts on a line of its own */
+.reg-office {
+  display: block;
 }
 
 /* ── RESPONSIVE ─────────────────────────────── */
@@ -934,10 +940,11 @@ footer {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+  /* stacked and left-aligned, in line with the footer columns above */
   .footer-bar {
     flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
-    text-align: center;
   }
   h1 {
     font-size: 38px;
@@ -958,6 +965,21 @@ footer {
   .btn-outline {
     font-size: 14px;
     padding: 12px 18px;
+  }
+}
+
+/* wider screens: the registered office address never breaks. Where the
+   address and the two links can't share a row (just above 768px), the links
+   wrap onto a second row instead of overflowing. */
+@media (min-width: 769px) {
+  .reg-office {
+    white-space: nowrap;
+  }
+  .footer-bar {
+    flex-wrap: wrap;
+  }
+  .footer-bar > span:first-child {
+    flex-basis: 0;
   }
 }
 
