@@ -442,6 +442,11 @@ h1 .accent {
   margin: 0 auto;
 }
 
+.classes-accent {
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
 #classes .class-card {
   max-width: 560px;
   margin: 0 auto;
